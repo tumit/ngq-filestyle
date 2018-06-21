@@ -68,9 +68,13 @@ export class NgqFilestyleComponent implements ControlValueAccessor, OnInit, Afte
   writeValue(obj: any): void {
     if (obj instanceof String) {
       this._fileName = String(obj);
-    }
-    if (obj instanceof File) {
+    } else if (obj instanceof File) {
       this._fileName = (obj as File).name;
+    } else {
+      this._fileName = obj;
+    }
+    if (this._jQueryElement) {
+      this._jQueryElement.find(INPUT_TEXT).val(this._fileName);
     }
   }
 
