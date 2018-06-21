@@ -73,7 +73,11 @@ export class NgqFilestyleComponent implements ControlValueAccessor, OnInit, Afte
     } else {
       this._fileName = obj;
     }
+
     if (this._jQueryElement) {
+      if (!this._fileName) {
+        this._jQueryElement.filestyle('clear');
+      }
       this._jQueryElement.find(INPUT_TEXT).val(this._fileName);
     }
   }

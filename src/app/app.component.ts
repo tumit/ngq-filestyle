@@ -10,8 +10,8 @@ export class AppComponent implements OnInit {
   // from group
   fg: FormGroup;
   citizenCard = new FormControl();
-  avatar = new FormControl('turtle.jpg');
-  header = new FormControl(new File(['0'], 'header.png'));
+  avatar = new FormControl('Header.txt');
+  header = new FormControl(new File(['0'], 'Header.txt'));
 
   ngOnInit() {
     this.fg = new FormGroup({
@@ -23,6 +23,10 @@ export class AppComponent implements OnInit {
 
   reset() {
     this.fg.reset();
+  }
+
+  add() {
+    this.fg.get('citizenCard').setValue(new File(['0'], 'citizenCard.txt'));
   }
 
 }
