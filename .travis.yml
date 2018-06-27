@@ -3,8 +3,8 @@ node_js:
   - "8.10"
 
 branches:
-only:
-  - master
+  only:
+    - master
 
 before_script:
   - npm install -g @angular/cli
@@ -12,11 +12,16 @@ before_script:
 script:
   - npm run packagr
 
-after_success:
-  - npm version patch
-  - npm publish dist
+before_deploy:
+  - cd dist
+
+deploy:
+  provider: npm
+  email: "tumit@live.com"
+  skip_cleanup: true
+  api_key: $NPM_TOKEN
 
 notifications:
-email:
-  on_failure: change
-  on_success: change
+  email:
+    on_failure: change
+    on_success: change
