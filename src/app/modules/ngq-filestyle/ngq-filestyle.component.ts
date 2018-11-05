@@ -22,6 +22,7 @@ const INPUT_TEXT = BOOTSTRAP_FILESTYLE + ' > input';
 export class NgqFilestyleComponent implements ControlValueAccessor, OnInit, AfterViewInit {
   @Input() clearIcon: false;
   @Input() clearIconText: '';
+  @Input() clearIconClass: 'glyphicon glyphicon-trash';
   @Input() maxSize = 5 * 2014 * 1024;
   @Input() acceptTypes: string[];
   @Input() id: string;
