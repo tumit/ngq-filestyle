@@ -1,10 +1,11 @@
 <div *ngIf="clearIcon">
-    <div class="pull-right">
-        <button type="button" class="btn btn-default btn-clear" (click)="onClear()"><i class="glyphicon glyphicon-trash"></i>Clear</button>
-    </div>
-    <div>
-      <input #input type="file" [attr.class]="class" [attr.id]="id" (change)="onChange($event.target.files)">
-    </div>
+  <div class="pull-right">
+    <button type="button" class="btn btn-default btn-clear" (click)="onClear()">
+      <i class="glyphicon glyphicon-trash"></i>{{ clearIconText }}</button>
+  </div>
+  <div>
+    <input #input type="file" [attr.class]="class" [attr.id]="id" (change)="onChange($event.target.files)">
+  </div>
 </div>
 
 <input *ngIf="!clearIcon" #input type="file" [attr.class]="class" [attr.id]="id" (change)="onChange($event.target.files)">

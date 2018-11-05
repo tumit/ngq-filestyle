@@ -21,6 +21,7 @@ const INPUT_TEXT = BOOTSTRAP_FILESTYLE + ' > input';
 })
 export class NgqFilestyleComponent implements ControlValueAccessor, OnInit, AfterViewInit {
   @Input() clearIcon: false;
+  @Input() clearIconText: '';
   @Input() maxSize = 5 * 2014 * 1024;
   @Input() acceptTypes: string[];
   @Input() id: string;
@@ -63,7 +64,7 @@ export class NgqFilestyleComponent implements ControlValueAccessor, OnInit, Afte
     this.propagateChange(null);
   }
 
-  propagateChange = _ => {};
+  propagateChange = _ => { };
 
   writeValue(obj: any): void {
     if (obj instanceof String) {
@@ -86,7 +87,7 @@ export class NgqFilestyleComponent implements ControlValueAccessor, OnInit, Afte
     this.propagateChange = fn;
   }
 
-  registerOnTouched(fn: any): void {}
+  registerOnTouched(fn: any): void { }
 
   setDisabledState?(isDisabled: boolean): void {
     if (this._jQueryElement) {
